@@ -1,0 +1,28 @@
+<mat-card>
+    <mat-card-header>
+        <mat-card-subtitle>Orders</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-expansion-panel *ngFor="let customer of customers; let i = index">
+            <mat-expansion-panel-header>
+                <mat-panel-title *ngFor="let order of customer.customerOrder; let j = index">
+                    Order ID {{order.orderID}}
+                </mat-panel-title>
+                <mat-panel-description>
+                    {{customer.customerName}}
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+
+            <mat-panel-description *ngFor="let order of customer.customerOrder; let j = index">
+                Delivery Distance :{{order.distance}}
+            </mat-panel-description>
+            <mat-panel-description *ngFor="let order of customer.customerOrder; let j = index">
+                Delivery floor :{{order.floor}}
+            </mat-panel-description>
+            <input type="checkbox" [checked]="customer.isNewCustomer" name="" id="customer.customerId"> IsNewCustomer
+            <!-- <mat-form-field>
+                <mat-checkbox></mat-checkbox>
+            </mat-form-field> -->
+        </mat-expansion-panel>
+    </mat-card-content>
+</mat-card>

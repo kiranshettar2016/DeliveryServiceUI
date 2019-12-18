@@ -1,0 +1,38 @@
+<style>
+   .emptyspace {
+    padding: 5px;
+  }
+</style>
+<div class="form-container">
+    <mat-form-field>
+      <input [(ngModel)]="customerName" matInput placeholder="Enter Customer Name">
+    </mat-form-field>
+    <div class="emptyspace"></div>
+    <mat-form-field>
+        <input type="number" [(ngModel)]="deliveryDistance" matInput placeholder="Enter Delivery Distance">
+    </mat-form-field>
+    <div class="emptyspace"></div>
+    <mat-form-field>
+        <input type="number" [(ngModel)]="deliveryFloor" matInput placeholder="Enter Floor to be Delivered">
+    </mat-form-field>
+    <div class="emptyspace"></div>
+    <mat-checkbox [(ngModel)]="isNewCustomer" >
+       <label for="isNewCustomer">Is New Customer</label>
+    </mat-checkbox>
+    <div class="emptyspace"></div>
+    <mat-checkbox [(ngModel)]="hasCoupon" >
+        <label for="hasCoupon">Has Coupon</label>
+    </mat-checkbox>
+    <div class="emptyspace"></div>
+    <div class="emptyspace"></div>
+    <strong><label *ngIf="showFare" for="totalFare">The total cost of order is {{totalFare | currency}}</label></strong>
+    <div class="emptyspace"></div>
+    <div class="emptyspace"></div>
+    <mat-chip-list>
+      <mat-chip (click)=addCustomer()>Submit Order</mat-chip>
+      <mat-chip (click)=onShowOrderClick() >Show All Orders</mat-chip>
+      <mat-chip (click)=getTotalFare() >Calculate Fare</mat-chip>
+    </mat-chip-list>
+  </div>
+  <div class="emptyspace"></div>
+  <div class="emptyspace"></div>
